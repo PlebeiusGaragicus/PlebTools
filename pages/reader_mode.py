@@ -17,17 +17,18 @@ if url := st.text_input("Enter URL"):
     article = simple_json_from_html_string(req.text, use_readability=True)
 
 
-    # st.header(article["title"])
-    # st.caption(f"by: {article['byline']}")
-    # if article['date'] is not None:
-    #     st.caption(article["date"])
-    # else:
-    #     st.caption("No date found")
-    byline_date = article.get("byline", "")
-    if article.get("date") is not None:
-        byline_date += " | " + article["date"]
+    st.header(article["title"])
+    st.caption(f"by: {article['byline']}")
+    if article['date'] is not None:
+        st.caption(article["date"])
+    else:
+        st.caption("No date found")
 
-    st.caption(byline_date)
+    # NoneType errors... forget this way
+    # byline_date = article.get("byline", "")
+    # if article.get("date") is not None:
+    #     byline_date += " | " + article["date"]
+    # st.caption(byline_date)
 
     content = article["content"]
 
