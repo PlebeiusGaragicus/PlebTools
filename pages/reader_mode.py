@@ -6,6 +6,7 @@ import re
 # NOTE: we are using this - https://github.com/alan-turing-institute/ReadabiliPy
 from readabilipy import simple_json_from_html_string
 
+st.set_page_config(page_title="Website reader mode", layout="wide")
 st.header(":grey[Website reader mode]", divider="rainbow")
 
 st.caption("https://tftc.io/home-and-car-insurance-providers-retreating/")
