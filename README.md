@@ -19,9 +19,10 @@ adduser satoshi
 usermod -aG sudo satoshi
 ```
 
-## change `root` prompt to signal completion
+## change `root` prompt
 ```sh
 echo 'export PS1="\n\[\e[1;35m\](\[\e[1;31m\]\u\[\e[1;35m\]@\[\e[1;34m\]\h\[\e[1;35m\]) [\w]\n\[\e[1;36m\]\$ \[\e[0m\]"' >> ~/.bashrc
+source .bashrc
 ```
 
 

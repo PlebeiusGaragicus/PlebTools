@@ -2,4 +2,5 @@
 
 source venv/bin/activate
 DEBUG=1
-streamlit run PlebTools.py
+# streamlit run PlebTools.py
+streamlit run app.py
