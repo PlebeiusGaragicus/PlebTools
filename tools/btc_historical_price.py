@@ -43,21 +43,23 @@ def coinbase_fetch_price_history(start_timestamp: int, end_timestamp: int) -> pd
 
 
 
-coinbase_price = btc_price()
-bitcoin_price = coinbase_price.replace(",", "")
-bitcoin_price = float(bitcoin_price)
+def page():
 
-p = bitcoin_price
+    coinbase_price = btc_price()
+    bitcoin_price = coinbase_price.replace(",", "")
+    bitcoin_price = float(bitcoin_price)
 
-
-
-st.set_page_config(page_title="Bitcoin Historical Price", layout="wide")
-st.header(":orange[bitcoin] :green[historical price]", divider="rainbow")
-st.markdown(f"# Bitcoin price: :orange[${coinbase_price}]")
+    p = bitcoin_price
 
 
-# graph historical price
-ninety_days_ago = time.time() - (90 * 24 * 60 * 60)
-with st.spinner("Loading data..."):
-    historical_price = coinbase_fetch_price_history(ninety_days_ago, time.time())
-st.line_chart(historical_price, y=["high", "low"], x="date")
+
+    # st.set_page_config(page_title="Bitcoin Historical Price", layout="wide")
+    st.header(":orange[bitcoin] :green[historical price]", divider="rainbow")
+    st.markdown(f"# Bitcoin price: :orange[${coinbase_price}]")
+
+
+    # graph historical price
+    ninety_days_ago = time.time() - (90 * 24 * 60 * 60)
+    with st.spinner("Loading data..."):
+        historical_price = coinbase_fetch_price_history(ninety_days_ago, time.time())
+    st.line_chart(historical_price, y=["high", "low"], x="date")
